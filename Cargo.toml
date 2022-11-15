@@ -1,0 +1,18 @@
+[package]
+name = "cherrychain"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[workspace]
+members = [
+    "crates/cherrychain_cli",
+    "crates/cherrychain_p2p",
+    "crates/cherrychain_block",
+    "crates/cherrychain_config",
+    "crates/cherrychain_backend_mysql",
+    "crates/cherrychain_backend_surrealdb"
+]
+
+[dependencies]
