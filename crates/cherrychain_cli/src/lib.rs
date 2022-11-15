@@ -1,14 +1,26 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+use clap::{Parser, Subcommand};
+
+#[derive(Parser)]
+#[command(author, version, about, long_about = None)]
+struct Cli {
+    #[command(subcommand)]
+    command: Option<Commands>,
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+#[derive(Subcommand)]
+enum Commands {
+    Serve {
+        #[arg(short, long)]
+        backend: Option<String>,
+    },
+}
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+pub fn cli() {
+    let cli = Cli::parse();
+
+    match &cli.command {
+        Some(Commands::Serve { backend: _ }) => {}
+        None => {}
     }
+
 }

@@ -16,3 +16,4 @@ members = [
 ]
 
 [dependencies]
+cherrychain_cli = { path = "crates/cherrychain_cli" }
